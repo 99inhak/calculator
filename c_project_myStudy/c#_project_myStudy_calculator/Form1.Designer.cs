@@ -20,6 +20,8 @@
         private System.Windows.Forms.Button buttonDivide;
         private System.Windows.Forms.Button buttonEquals;
         private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Button buttonSquareRoot;
+        private System.Windows.Forms.Button buttonSquare;
 
         protected override void Dispose(bool disposing)
         {
@@ -49,6 +51,8 @@
             buttonDivide = new Button();
             buttonEquals = new Button();
             buttonClear = new Button();
+            buttonSquareRoot = new Button();
+            buttonSquare = new Button();
             SuspendLayout();
             // 
             // textBoxResult
@@ -220,11 +224,33 @@
             buttonClear.UseVisualStyleBackColor = true;
             buttonClear.Click += buttonClear_Click;
             // 
+            // buttonSquareRoot
+            // 
+            buttonSquareRoot.Location = new Point(68, 204);
+            buttonSquareRoot.Name = "buttonSquareRoot";
+            buttonSquareRoot.Size = new Size(50, 50);
+            buttonSquareRoot.TabIndex = 17;
+            buttonSquareRoot.Text = "√";
+            buttonSquareRoot.UseVisualStyleBackColor = true;
+            buttonSquareRoot.Click += buttonSquareRoot_Click;
+            // 
+            // buttonSquare
+            // 
+            buttonSquare.Location = new Point(124, 204);
+            buttonSquare.Name = "buttonSquare";
+            buttonSquare.Size =  new Size(50, 50);
+            buttonSquare.TabIndex = 18;
+            buttonSquare.Text = "x²";
+            buttonSquare.UseVisualStyleBackColor = true;
+            buttonSquare.Click += buttonSquare_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(300, 284);
+            ClientSize = new Size(295, 261);
+            Controls.Add(buttonSquare);
+            Controls.Add(buttonSquareRoot);
             Controls.Add(buttonClear);
             Controls.Add(buttonEquals);
             Controls.Add(buttonDivide);

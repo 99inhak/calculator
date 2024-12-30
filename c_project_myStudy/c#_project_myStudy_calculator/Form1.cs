@@ -34,24 +34,38 @@ namespace c__project_myStudy_calculator
 
         private void buttonEquals_Click(object sender, EventArgs e)
         {
-            switch (operationPerformed)
+            try
             {
-                case "+":
-                    textBoxResult.Text = (resultValue + Double.Parse(textBoxResult.Text)).ToString();
-                    break;
-                case "-":
-                    textBoxResult.Text = (resultValue - Double.Parse(textBoxResult.Text)).ToString();
-                    break;
-                case "*":
-                    textBoxResult.Text = (resultValue * Double.Parse(textBoxResult.Text)).ToString();
-                    break;
-                case "/":
-                    textBoxResult.Text = (resultValue / Double.Parse(textBoxResult.Text)).ToString();
-                    break;
-                default:
-                    break;
+                switch (operationPerformed)
+                {
+                    case "+":
+                        textBoxResult.Text = (resultValue + Double.Parse(textBoxResult.Text)).ToString();
+                        break;
+                    case "-":
+                        textBoxResult.Text = (resultValue - Double.Parse(textBoxResult.Text)).ToString();
+                        break;
+                    case "*":
+                        textBoxResult.Text = (resultValue * Double.Parse(textBoxResult.Text)).ToString();
+                        break;
+                    case "/":
+                        if (Double.Parse(textBoxResult.Text) == 0)
+                        {
+                            MessageBox.Show("0으로 나눌 수 없습니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            textBoxResult.Text = (resultValue / Double.Parse(textBoxResult.Text)).ToString();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                resultValue = Double.Parse(textBoxResult.Text);
             }
-            resultValue = Double.Parse(textBoxResult.Text);
+            catch (Exception ex)
+            {
+                MessageBox.Show("오류가 발생했습니다: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             operationPerformed = "";
         }
 
@@ -59,6 +73,16 @@ namespace c__project_myStudy_calculator
         {
             textBoxResult.Text = "0";
             resultValue = 0;
+        }
+
+        private void buttonSquareRoot_Click(object sender, EventArgs e)
+        {
+            textBoxResult.Text = Math.Sqrt(Double.Parse(textBoxResult.Text)).ToString();
+        }
+
+        private void buttonSquare_Click(object sender, EventArgs e)
+        {
+            textBoxResult.Text = Math.Pow(Double.Parse(textBoxResult.Text), 2).ToString();
         }
     }
 }
