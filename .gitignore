@@ -1,0 +1,12 @@
+# Visual Studio 관련 파일 및 폴더 제외
+.vs/
+*.user
+*.suo
+
+# 빌드 출력 폴더 제외
+bin/
+obj/
+
+# 기타 제외할 파일 및 폴더
+*.log
+*.tmp
